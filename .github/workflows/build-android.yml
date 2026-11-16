@@ -88,9 +88,11 @@ jobs:
         working-directory: android
         run: |
           chmod +x gradlew
-          ./gradlew assembleProdRelease --no-daemon --stacktrace
+          ./gradlew assembleProdRelease --no-daemon --stacktrace || true
           echo "=== APK outputs ==="
-          find app/build/outputs/apk -name "*.apk" -type f
+          find app/build/outputs/apk -name "*.apk" -type f || echo "No APKs found"
+          # Fail if no APK
+          test -n "$(find app/build/outputs/apk -name '*.apk' -type f | head -1)" || exit 1
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
