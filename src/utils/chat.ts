@@ -249,56 +249,56 @@ export const chatTemplates: Record<string, ChatTemplateConfig> = {
     bosToken: '',
     eosToken: '',
     chatTemplate: '',
-    systemPrompt: '',
+    systemPrompt: 'You are a helpful assistant. Respond in the language the user writes in (English or Russian).',
   },
   danube3: {
     ...Templates.templates.danube2,
     name: 'danube3',
     addGenerationPrompt: true,
     systemPrompt:
-      'You are a helpful assistant named H2O Danube3. You are precise, concise, and casual.',
+      'You are a helpful assistant named H2O Danube3. Respond in the language the user writes in (English or Russian). Be precise, concise, and casual.',
   },
   danube2: {
     ...Templates.templates.danube2,
     name: 'danube2',
     addGenerationPrompt: true,
     systemPrompt:
-      'You are a helpful assistant named H2O Danube2. You are precise, concise, and casual.',
+      'You are a helpful assistant named H2O Danube2. Respond in the language the user writes in (English or Russian). Be precise, concise, and casual.',
   },
   phi3: {
     ...Templates.templates.phi3,
     name: 'phi3',
     addGenerationPrompt: true,
     systemPrompt:
-      'You are a helpful conversational chat assistant. You are precise, concise, and casual.',
+      'You are a helpful conversational chat assistant. Respond in the language the user writes in (English or Russian). Be precise, concise, and casual.',
   },
   gemmaIt: {
     ...Templates.templates.gemmaIt,
     name: 'gemmaIt',
     addGenerationPrompt: true,
     systemPrompt:
-      'You are a helpful conversational chat assistant. You are precise, concise, and casual.',
+      'You are a helpful conversational chat assistant. Respond in the language the user writes in (English or Russian). Be precise, concise, and casual.',
   },
   chatML: {
     ...Templates.templates.chatML,
     name: 'chatML',
     addGenerationPrompt: true,
     systemPrompt:
-      'You are a helpful conversational chat assistant. You are precise, concise, and casual.',
+      'You are a helpful conversational chat assistant. Respond in the language the user writes in (English or Russian). Be precise, concise, and casual.',
   },
   default: {
     ...Templates.templates.default,
     name: 'default',
     addGenerationPrompt: true,
     systemPrompt:
-      'You are a helpful conversational chat assistant. You are precise, concise, and casual.',
+      'You are a helpful conversational chat assistant. Respond in the language the user writes in (English or Russian). Be precise, concise, and casual.',
   },
   llama3: {
     ...Templates.templates.llama3,
     name: 'llama3',
     addGenerationPrompt: true,
     systemPrompt:
-      'You are a helpful conversational chat assistant. You are precise, concise, and casual.',
+      'You are a helpful conversational chat assistant. Respond in the language the user writes in (English or Russian). Be precise, concise, and casual.',
   },
   llama32: {
     ...Templates.templates.llama32,
@@ -311,25 +311,25 @@ export const chatTemplates: Record<string, ChatTemplateConfig> = {
     name: 'gemmasutra',
     addGenerationPrompt: true,
     systemPrompt:
-      'You are a helpful conversational chat assistant. You are precise, concise, and casual.',
+      'You are a helpful conversational chat assistant. Respond in the language the user writes in (English or Russian). Be precise, concise, and casual.',
   },
   qwen2: {
     ...Templates.templates.qwen2,
     name: 'qwen2',
     addGenerationPrompt: true,
-    systemPrompt: 'You are a helpful assistant.',
+    systemPrompt: 'You are a helpful assistant. Respond in the language the user writes in (English or Russian).',
   },
   qwen25: {
     ...Templates.templates.qwen25,
     name: 'qwen25',
     addGenerationPrompt: true,
     systemPrompt:
-      'You are Qwen, created by Alibaba Cloud. You are a helpful assistant.',
+      'You are Qwen, created by Alibaba Cloud. You are a helpful assistant. Respond in the language the user writes in (English or Russian).',
   },
   smolLM: {
     name: 'smolLM',
     addGenerationPrompt: true,
-    systemPrompt: 'You are a helpful assistant.',
+    systemPrompt: 'You are a helpful assistant. Respond in the language the user writes in (English or Russian).',
     bosToken: '<|im_start|>',
     eosToken: '<|im_end|>',
     addBosToken: false,

@@ -48,7 +48,7 @@ export class UIStore {
   }
 
   // Current selected language (default to Chinese; user can switch in settings)
-  _language: AvailableLanguage = 'zh';
+  _language: AvailableLanguage = 'en';
 
   // List of supported languages (derived from locales registry)
   get supportedLanguages(): readonly AvailableLanguage[] {
