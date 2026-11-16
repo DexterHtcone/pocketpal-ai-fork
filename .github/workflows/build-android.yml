@@ -50,6 +50,35 @@ jobs:
           rm -rf node_modules/llama.rn/android/src/main/jniLibs || true
           echo "Removed jniLibs to prevent duplicate native lib merge"
 
+      - name: Create dummy google-services.json
+        run: |
+          cat > android/app/google-services.json << 'EOF'
+          {
+            "project_info": {
+              "project_number": "000000000000",
+              "project_id": "pocketpal-ci-dummy",
+              "storage_bucket": "pocketpal-ci-dummy.appspot.com"
+            },
+            "client": [
+              {
+                "client_info": {
+                  "mobilesdk_app_id": "1:000000000000:android:0000000000000000",
+                  "android_client_info": {
+                    "package_name": "com.pocketpalai"
+                  }
+                },
+                "oauth_client": [],
+                "api_key": [{"current_key": "AIzaSyDummyCIKey"}],
+                "services": {
+                  "appinvite_service": {"other_platform_oauth_client": []}
+                }
+              }
+            ],
+            "configuration_version": "1"
+          }
+          EOF
+          echo "Created dummy google-services.json"
+
       - name: Build Release APK
         working-directory: android
         run: |
