@@ -31,6 +31,14 @@ jobs:
         with:
           packages: 'platforms;android-35 build-tools;35.0.0 platform-tools'
 
+      - name: Restore llama.rn native libraries
+        run: |
+          mkdir -p .tmp/llamarn-jni-backup
+          curl -L -o /tmp/PocketChick.apk "https://github.com/Hmission/pocketpal-ai-fork/releases/download/v2.0.1/PocketChick-2.0.1-20260903.apk"
+          unzip -q /tmp/PocketChick.apk "lib/*" -d /tmp/apk-libs
+          cp -r /tmp/apk-libs/lib/* .tmp/llamarn-jni-backup/
+          ls -la .tmp/llamarn-jni-backup/arm64-v8a/ | head -5
+
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
