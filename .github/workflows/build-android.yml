@@ -37,9 +37,14 @@ jobs:
           curl -L -o /tmp/PocketChick.apk "https://github.com/Hmission/pocketpal-ai-fork/releases/download/v2.0.1/PocketChick-2.0.1-20260903.apk"
           unzip -q /tmp/PocketChick.apk "lib/*" -d /tmp/apk-libs
           cp -r /tmp/apk-libs/lib/* .tmp/llamarn-jni-backup/
-          ls -la .tmp/llamarn-jni-backup/arm64-v8a/ | head -5
+          echo "=== Backup contents ==="
+          ls -la .tmp/llamarn-jni-backup/arm64-v8a/ | head -20
+          echo "=== llama files ==="
+          ls .tmp/llamarn-jni-backup/arm64-v8a/librnllama* 2>/dev/null | wc -l
 
       - name: Install dependencies
+        env:
+          LLAMARN_JNI_BACKUP: ${{ github.workspace }}/.tmp/llamarn-jni-backup
         run: yarn install --frozen-lockfile
 
       - name: Remove restored jniLibs to avoid CMake duplicate
