@@ -42,6 +42,14 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Remove restored jniLibs to avoid CMake duplicate
+        run: |
+          # CMake builds librnllama_jni.so; having a prebuilt copy in jniLibs
+          # causes MergeNativeLibsTask to fail with DuplicateRelativeFileException.
+          # Remove the restored copies so only the CMake output is used.
+          rm -rf node_modules/llama.rn/android/src/main/jniLibs || true
+          echo "Removed jniLibs to prevent duplicate native lib merge"
+
       - name: Build Release APK
         working-directory: android
         run: |
